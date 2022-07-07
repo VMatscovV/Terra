@@ -110,6 +110,7 @@ class Window(QMainWindow):
             webbrowser.register('chrome', None,
                                 webbrowser.BackgroundBrowser("C:\Program Files\Google\Chrome\Application\chrome.exe"))
             webbrowser.get('chrome').open_new(url)
+            self.centrallab.setText("<h2>Hello, I'm ready<h2>")
 
         elif recognized_data.find("открыть") >= 0:
             if recognized_data.find("диспетчер задач") >= 0:
@@ -118,6 +119,7 @@ class Window(QMainWindow):
                 os.system('control.exe')
             elif recognized_data.find("экранную клавиатуру") >= 0:
                 os.system('osk.exe')
+            self.centrallab.setText("<h2>Hello, I'm ready<h2>")
 
         elif recognized_data.find("закрыть") >= 0:
             if recognized_data.find("диспетчер задач") >= 0:
@@ -129,6 +131,7 @@ class Window(QMainWindow):
             elif recognized_data.find("экранную клавиатуру") >= 0:
                 for process in (process for process in psutil.process_iter() if process.name() == "osk.exe"):
                     process.kill()
+            self.centrallab.setText("<h2>Hello, I'm ready<h2>")
 
         elif recognized_data.find("вычислить") >= 0:
             try:
